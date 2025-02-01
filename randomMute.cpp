@@ -30,6 +30,14 @@ int main(){
     cout << "Podaj nazwe pliku z ofiarami: ";
     cin >> plik;
     std::fstream kandydaci(plik);
+
+    if (!kandydaci)
+    {
+        cout << "Nie ma takiego pliku!";
+        return 0;
+    }
+    
+
     while (getline(kandydaci, x))
     {
         ofiary.push_back(x);
@@ -38,7 +46,7 @@ int main(){
 
     for (int i = 1; i <= pech; i++){
         wylosowany = rand() % linie;
-        id = (rand() % 4) + 1;
+        id = (rand() % 5);
         cout << "Wylosowano: " << ofiary[wylosowany] << " na " <<  czas[id] << '\n';
         id = 0;
     }
